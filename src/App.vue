@@ -17,10 +17,14 @@ onMounted(async () => {
 
 <template>
   <div>
-    <Button ref="xi" disabled>
+    <Button ref="xi" class="fk-button-primary">
       默认按钮
     </Button>
   </div>
 </template>
 
-<style scoped></style>
+<style scoped>
+.fk-button-primary {
+  background-color: var(--main-bg-color);
+}
+</style>

@@ -1,6 +1,3 @@
-// module.exports = { extends: ['@commitlint/config-conventional'] }
-
-// eslint-disable-next-line no-undef
 export default {
   extends: ["@commitlint/config-conventional"], // extends can be nested
   parserPreset: "conventional-changelog-conventionalcommits",
