@@ -1,12 +1,19 @@
 <template>
-  <button ref="_ref" class="fk-button" :class="{
-    [`fk-button-${type}`]: type,
-    [`fk-button-${size}`]: size,
-    'is-plain': plain,
-    'is-round': round,
-    'is-circle': circle,
-    'is-disabled': disabled,
-  }" :disabled="disabled" :autofocus="autofocus" :type="nativeType">
+  <button 
+    ref="_ref" 
+    class="fk-button" 
+    :class="{
+      [`fk-button-${type}`]: type,
+      [`fk-button-${size}`]: size,
+      'is-plain': plain,
+      'is-round': round,
+      'is-circle': circle,
+      'is-disabled': disabled,
+    }" 
+    :disabled="disabled" 
+    :autofocus="autofocus" 
+    :type="nativeType"
+  >
     <slot></slot>
   </button>
 </template>
@@ -23,9 +30,7 @@ withDefaults(defineProps<ButtonProps>(), {
 const _ref = ref<HTMLButtonElement | null>(null)
 
 // 使用泛型为defineExpose指定暴露的类型
-defineExpose<import('./types').ButtonInstance>({
-  ref: _ref.value
+defineExpose({
+  ref: _ref
 })
 </script>
-
-<style scoped></style>

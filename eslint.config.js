@@ -21,20 +21,23 @@ export default [
     rules: {
       "simple-import-sort/imports": "warn",
       "simple-import-sort/exports": "warn",
-      "vue/max-attributes-per-line": ["warn", {
-        "singleline": {
-          "max": 3
-        },      
-        "multiline": {
-          "max": 3
-        }
-      }],
-      "vue/html-self-closing":'off',
-      "vue/multi-word-component-names": "off"
+      "vue/max-attributes-per-line": [
+        "warn",
+        {
+          singleline: {
+            max: 3,
+          },
+          multiline: {
+            max: 3,
+          },
+        },
+      ],
+      "vue/html-self-closing": "off",
+      "vue/multi-word-component-names": "off",
     },
   },
   {
-    files: ["src/**/*.{ts}"],
+    files: ["*.ts", "**/*.ts"],
     plugins: {
       "simple-import-sort": eslintPluginSimpleImportSort,
     },

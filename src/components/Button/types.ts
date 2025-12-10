@@ -19,3 +19,5 @@ export interface ButtonInstance {
 }
 
 // 考虑到原生button带的属性, disabled, autofocus, NativeType
+// 按照目的可以得到属性: ButtonType: 'primary' | 'danger' | 'success' | 'info' | 'warning'
+// 相应的还有与之对应的
