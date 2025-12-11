@@ -1,12 +1,10 @@
-<script lang="ts">
-export default {
-  name: 'FKCollapseItem',
-}
-</script>
-
 <script setup lang="ts">
+defineOptions({
+  name: 'FKCollapseItem',
+})
 import { computed, inject } from 'vue'
 
+import Icon from '../Icon/Icon.vue'
 import type { CollapseItemProps } from './types'
 import { collapseContextKey } from './types'
 
@@ -63,6 +61,8 @@ const transitionEvents: Record<string, (el: HTMLElement) => void> = {
       <slot name="title">
         {{ props.title }}
       </slot>
+      <Icon v-if="isActive" class="angle-right" icon="fa-solid fa-arrow-down" />
+      <Icon v-else class="angle-right" icon="fa-solid fa-arrow-right" />
     </div>
     <Transition name="slide" v-on="transitionEvents">
       <div v-show="isActive" class="fk-collapse-item__content-wrapper">

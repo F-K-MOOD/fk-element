@@ -1,4 +1,4 @@
-export type ButtonType = 'primary' | 'danger' | 'success' | 'info' | 'warning' | 'default'
+export type ButtonType = 'primary' | 'success' | 'warning' | 'danger' | 'info'
 export type ButtonSize = 'small' | 'large'
 export type NativeType = 'button' | 'submit' | 'reset'
 
@@ -11,6 +11,9 @@ export interface ButtonProps {
   circle?: boolean
   autofocus?: boolean
   disabled?: boolean
+  icon?: string
+  loading?: boolean
+  
 }
 
 

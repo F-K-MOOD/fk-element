@@ -5,6 +5,9 @@ import Button from './components/Button/Button.vue'
 import Collapse from './components/Collapse/Collapse.vue';
 import CollapseItem from './components/Collapse/CollapseItem.vue';
 import type { nameType } from './components/Collapse/types'
+import Icon from './components/Icon/Icon.vue'
+
+
 
 const activeNames = ref<nameType[]>(['aaaa'])
 
@@ -16,7 +19,9 @@ setTimeout(() => {
 
 <template>
   <div>
-    <Button size="small" type="danger">主要按钮</Button>
+    <Button size="large" loading type="danger">主要按钮</Button>
+    <Button size="large" icon="fa-regular fa-user" type="danger">主要按钮</Button>
+    <Button size="large" type="danger">主要按钮</Button>
     <Collapse v-model:modelValue="activeNames">
       <CollapseItem name="aaaa" title="标题1">
         内容1
@@ -33,6 +38,7 @@ setTimeout(() => {
     </Collapse>
   </div>
   {{ activeNames }}
+  <Icon size="2xl" icon="fa-regular fa-user" type="primary" />
 </template>
 
 <style scoped>

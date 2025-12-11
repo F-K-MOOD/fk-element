@@ -1,14 +1,12 @@
-<script lang="ts">
-  export default {
-    name: 'FKCollapse',
-  }
-</script>
 <script setup lang="ts">
 import { provide,ref,watch } from 'vue'
 
 import type { CollapseEmits,CollapseProps, nameType } from './types'
 import { collapseContextKey } from './types'
 
+defineOptions({
+  name: 'FKCollapse',
+})
 
 const collapseProps = defineProps<CollapseProps>()
 const collapseEmits = defineEmits<CollapseEmits>()
@@ -17,6 +15,7 @@ const activeNames = ref(collapseProps.modelValue || [])
 watch(() => collapseProps.modelValue, (newVal) => {
   activeNames.value = newVal || []
 })
+
 
 if(collapseProps.accordion) {
   if(activeNames.value.length > 0) {
