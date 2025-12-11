@@ -1,8 +1,8 @@
 body {
-  font-family: var(--fk-font-family);
+  font-family: var(--vk-font-family);
   font-weight: 400;
-  font-size: var(--fk-font-size-base);
-  color: var(--fk-text-color-primary);
+  font-size: var(--vk-font-size-base);
+  color: var(--vk-text-color-primary);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   -webkit-tap-highlight-color: transparent;
@@ -14,16 +14,21 @@ a {
 
   &:hover,
   &:focus {
-    color: var(--fk-color-primary-light-3);
+    color: var(--vk-color-primary-light-3);
   }
 
   &:active {
-    color: var(--fk-color-primary-dark-2);
+    color: var(--vk-color-primary-dark-2);
   }
 }
 
-h1, h2, h3, h4, h5, h6 {
-  color: var(--fk-text-color-regular);
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: var(--vk-text-color-regular);
   font-weight: inherit;
 
   &:first-child {
@@ -36,15 +41,15 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h1 {
-  font-size: calc(var(--fk-font-size-base) + 6px);
+  font-size: calc(var(--vk-font-size-base) + 6px);
 }
 
 h2 {
-  font-size: calc(var(--fk-font-size-base) + 4px);
+  font-size: calc(var(--vk-font-size-base) + 4px);
 }
 
 h3 {
-  font-size: calc(var(--fk-font-size-base) + 2px);
+  font-size: calc(var(--vk-font-size-base) + 2px);
 }
 
 h4,
@@ -68,16 +73,16 @@ p {
 
 sup,
 sub {
-  font-size: calc(var(--fk-font-size-base) - 1px);
+  font-size: calc(var(--vk-font-size-base) - 1px);
 }
 
 small {
-  font-size: calc(var(--fk-font-size-base) - 2px);
+  font-size: calc(var(--vk-font-size-base) - 2px);
 }
 
 hr {
   margin-top: 20px;
   margin-bottom: 20px;
   border: 0;
-  border-top: 1px solid var(--fk-border-color-lighter);
+  border-top: 1px solid var(--vk-border-color-lighter);
 }

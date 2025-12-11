@@ -3,26 +3,41 @@
   --fk-color-white: #ffffff;
   --fk-color-black: #000000;
   
-  /* font */
-  --fk-font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-  --fk-font-size-base: 14px;
-  
-  --colors: (
-    primary: #409eff,
-    success: #67c23a,
-    warning: #e6a23c,
-    danger: #f56c6c,
-    info: #909399
-  );
+  /* 定义颜色映射 */
+  --fk-color-primary: #409eff;
+  --fk-color-primary-light-3: color-mix(in srgb, var(--fk-color-primary) 70%, #fff 30%);
+  --fk-color-primary-light-5: color-mix(in srgb, var(--fk-color-primary) 50%, #fff 50%);
+  --fk-color-primary-light-7: color-mix(in srgb, var(--fk-color-primary) 30%, #fff 70%);  
+  --fk-color-primary-light-8: color-mix(in srgb, var(--fk-color-primary) 20%, #fff 80%);
+  --fk-color-primary-dark-2: color-mix(in srgb, var(--fk-color-primary) 80%, #000 20%);     
 
-  @each $val, $color in var(--colors) {
-    --fk-color-$(val): $(color);
-    @for $i from 3 to 9 by 2 {
-      --fk-color-$(val)-light-$(i): mix(#fff, $(color), .$(i))
-    }
-    --fk-color-$(val)-light-8: mix(#fff, $(color), .8);
-    --fk-color-$(val)-dark-2: mix(#000, $(color), .2);
-  }
+  --fk-color-success: #67c23a;
+  --fk-color-success-light-3: color-mix(in srgb, var(--fk-color-success) 70%, #fff 30%);
+  --fk-color-success-light-5: color-mix(in srgb, var(--fk-color-success) 50%, #fff 50%);
+  --fk-color-success-light-7: color-mix(in srgb, var(--fk-color-success) 30%, #fff 70%);
+  --fk-color-success-light-8: color-mix(in srgb, var(--fk-color-success) 20%, #fff 80%);
+  --fk-color-success-dark-2: color-mix(in srgb, var(--fk-color-success) 80%, #000 20%);
+
+  --fk-color-warning: #e6a23c;
+  --fk-color-warning-light-3: color-mix(in srgb, var(--fk-color-warning) 70%, #fff 30%);
+  --fk-color-warning-light-5: color-mix(in srgb, var(--fk-color-warning) 50%, #fff 50%);
+  --fk-color-warning-light-7: color-mix(in srgb, var(--fk-color-warning) 30%, #fff 70%);
+  --fk-color-warning-light-8: color-mix(in srgb, var(--fk-color-warning) 20%, #fff 80%);  
+  --fk-color-warning-dark-2: color-mix(in srgb, var(--fk-color-warning) 80%, #000 20%);
+
+  --fk-color-danger: #f56c6c;
+  --fk-color-danger-light-3: color-mix(in srgb, var(--fk-color-danger) 70%, #fff 30%);
+  --fk-color-danger-light-5: color-mix(in srgb, var(--fk-color-danger) 50%, #fff 50%);
+  --fk-color-danger-light-7: color-mix(in srgb, var(--fk-color-danger) 30%, #fff 70%);
+  --fk-color-danger-light-8: color-mix(in srgb, var(--fk-color-danger) 20%, #fff 80%);    
+  --fk-color-danger-dark-2: color-mix(in srgb, var(--fk-color-danger) 80%, #000 20%);
+
+  --fk-color-info: #909399;
+  --fk-color-info-light-3: color-mix(in srgb, var(--fk-color-info) 70%, #fff 30%);  
+  --fk-color-info-light-5: color-mix(in srgb, var(--fk-color-info) 50%, #fff 50%);
+  --fk-color-info-light-7: color-mix(in srgb, var(--fk-color-info) 30%, #fff 70%);
+  --fk-color-info-light-8: color-mix(in srgb, var(--fk-color-info) 20%, #fff 80%);
+  --fk-color-info-dark-2: color-mix(in srgb, var(--fk-color-info) 80%, #000 20%);
 
   --fk-bg-color: #ffffff;
   --fk-bg-color-page: #f2f3f5;
@@ -31,7 +46,7 @@
   --fk-text-color-regular: #606266;
   --fk-text-color-secondary: #909399;
   --fk-text-color-placeholder: #a8abb2;
-  --fk-text-color-disabled: #c0c4cc;
+  --fk-text-color-disabled: #c0c4cc;    
   --fk-border-color: #dcdfe6;
   --fk-border-color-light: #e4e7ed;
   --fk-border-color-lighter: #ebeef5;
@@ -69,10 +84,9 @@
   /*disabled*/
   --fk-disabled-bg-color: var(--fk-fill-color-light);
   --fk-disabled-text-color: var(--fk-text-color-placeholder);
-  --fk-disabled-border-color: var(--fk-border-color-light);
+  --fk-disabled-border-color: var(--fk-border-color-light);   
   
   /*animation*/
-  --fk-transition-duration: .3s;
-  --fk-transition-duration-fast: .2s;
-
+  --fk-transition-duration: 1s;
+  --fk-transition-duration-fast: .5s;
 }

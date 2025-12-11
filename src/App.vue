@@ -1,26 +1,38 @@
 <script setup lang="ts">
-import { onMounted, ref } from 'vue'
+import { ref } from 'vue'
 
 import Button from './components/Button/Button.vue'
-import type { ButtonInstance } from './components/Button/types'
-const xi = ref<ButtonInstance | null>(null)
+import Collapse from './components/Collapse/Collapse.vue';
+import CollapseItem from './components/Collapse/CollapseItem.vue';
+import type { nameType } from './components/Collapse/types'
 
+const activeNames = ref<nameType[]>(['aaaa'])
 
-onMounted(async () => {
-  //! 当父组件通过模板引用的方式获取到当前组件的实例，
-  // 获取到的实例会像这样 { a: number, b: number } (ref 会和在普通实例中一样被自动解包)
-  if (xi.value) {
-    console.log(xi.value.ref)
-  }
-})
+setTimeout(() => {
+  activeNames.value = ['bbbb','cccc']
+}, 2000)
+
 </script>
 
 <template>
   <div>
-    <Button ref="xi" class="fk-button-primary">
-      默认按钮
-    </Button>
+    <Button size="small" type="danger">主要按钮</Button>
+    <Collapse v-model:modelValue="activeNames">
+      <CollapseItem name="aaaa" title="标题1">
+        内容1
+      </CollapseItem>
+      <CollapseItem name="bbbb" title="标题2">
+        内容2
+      </CollapseItem>
+      <CollapseItem name="cccc">
+        <template #title>
+          <span>自定义标题</span>
+        </template>
+        内容3
+      </CollapseItem>
+    </Collapse>
   </div>
+  {{ activeNames }}
 </template>
 
 <style scoped>
