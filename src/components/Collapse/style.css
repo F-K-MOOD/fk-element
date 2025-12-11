@@ -1,0 +1,58 @@
+.fk-collapse {
+  --fk-collapse-border-color: var(--fk-border-color-light);
+  --fk-collapse-header-height: 48px;
+  --fk-collapse-header-bg-color: var(--fk-fill-color-blank);
+  --fk-collapse-header-text-color: var(--fk-text-color-primary);
+  --fk-collapse-header-font-size: 13px;
+  --fk-collapse-content-bg-color: var(--fk-fill-color-blank);
+  --fk-collapse-content-font-size: 13px;
+  --fk-collapse-content-text-color: var(--fk-text-color-primary);
+  --fk-collapse-disabled-text-color: var(--fk-disabled-text-color);
+  --fk-collapse-disabled-border-color: var(--fk-border-color-lighter);
+  border-top: 1px solid var(--fk-collapse-border-color);
+  border-bottom: 1px solid var(--fk-collapse-border-color);
+}
+.fk-collapse-item__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: var(--fk-collapse-header-height);
+  line-height: var(--fk-collapse-header-height);
+  background-color: var(--fk-collapse-header-bg-color);
+  color: var(--fk-collapse-header-text-color);
+  cursor: pointer;
+  font-size: var(--fk-collapse-header-font-size);
+  font-weight: 500;
+  transition: border-bottom-color var(--fk-transition-duration);
+  outline: none;
+  border-bottom: 1px solid var(--fk-collapse-border-color);
+  &.is-disabled {
+    color: var(--fk-collapse-disabled-text-color);
+    cursor: not-allowed;
+    background-image: none;
+  }
+  &.is-active {
+    border-bottom-color: transparent;
+    .header-angle {
+      transform: rotate(90deg);
+    }
+  }
+  /* stylelint-disable-next-line no-descending-specificity */
+  .header-angle {
+    transition: transform var(--fk-transition-duration);
+  }
+}
+.fk-collapse-item__content {
+  will-change: height;
+  background-color: var(--fk-collapse-content-bg-color);
+  overflow: hidden;
+  box-sizing: border-box;
+  font-size: var(--fk-collapse-content-font-size);
+  color: var(--fk-collapse-content-text-color);
+  border-bottom: 1px solid var(--fk-collapse-border-color);
+  padding-bottom: 25px;
+}
+.slide-enter-active, .slide-leave-active {
+  transition: height var(--fk-transition-duration); 
+}
+

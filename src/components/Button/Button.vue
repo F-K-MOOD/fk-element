@@ -1,29 +1,15 @@
-<template>
-  <button 
-    ref="_ref" 
-    class="fk-button" 
-    :class="{
-      [`fk-button-${type}`]: type,
-      [`fk-button-${size}`]: size,
-      'is-plain': plain,
-      'is-round': round,
-      'is-circle': circle,
-      'is-disabled': disabled,
-    }" 
-    :disabled="disabled" 
-    :autofocus="autofocus" 
-    :type="nativeType"
-  >
-    <slot></slot>
-  </button>
-</template>
+<script lang="ts">
+export default {
+  name: 'FKButton',
+}
+</script>
 
 <script setup lang="ts">
 import { ref } from 'vue';
 
 import type { ButtonProps } from './types'
 
-withDefaults(defineProps<ButtonProps>(), {
+const buttonProps = withDefaults(defineProps<ButtonProps>(), {
   nativeType: 'button',
 })
 
@@ -34,3 +20,26 @@ defineExpose({
   ref: _ref
 })
 </script>
+
+<template>
+  <button 
+    ref="_ref" 
+    class="fk-button" 
+    :class="{
+      [`fk-button--${buttonProps.type}`]: buttonProps.type,
+      [`fk-button--${buttonProps.size}`]: buttonProps.size,
+      'is-plain': buttonProps.plain,
+      'is-round': buttonProps.round,
+      'is-circle': buttonProps.circle,
+      'is-disabled': buttonProps.disabled,
+    }" 
+    :disabled="buttonProps.disabled" 
+    :autofocus="buttonProps.autofocus" 
+    :type="buttonProps.nativeType"
+  >
+    <slot></slot>
+  </button>
+</template>
+
+
+

@@ -1,4 +1,4 @@
-export type ButtonType = 'primary' | 'danger' | 'success' | 'info' | 'warning'
+export type ButtonType = 'primary' | 'danger' | 'success' | 'info' | 'warning' | 'default'
 export type ButtonSize = 'small' | 'large'
 export type NativeType = 'button' | 'submit' | 'reset'
 
