@@ -1,15 +1,13 @@
-<script lang="ts">
-export default {
-  name: 'FKButton',
-}
-</script>
-
 <script setup lang="ts">
 import { ref } from 'vue';
 
+import Icon from '../Icon/Icon.vue'
 import type { ButtonProps } from './types'
+defineOptions({
+  name: 'FKButton',
+})
 
-const buttonProps = withDefaults(defineProps<ButtonProps>(), {
+withDefaults(defineProps<ButtonProps>(), {
   nativeType: 'button',
 })
 
@@ -26,17 +24,20 @@ defineExpose({
     ref="_ref" 
     class="fk-button" 
     :class="{
-      [`fk-button--${buttonProps.type}`]: buttonProps.type,
-      [`fk-button--${buttonProps.size}`]: buttonProps.size,
-      'is-plain': buttonProps.plain,
-      'is-round': buttonProps.round,
-      'is-circle': buttonProps.circle,
-      'is-disabled': buttonProps.disabled,
+      [`fk-button--${type}`]: type,
+      [`fk-button--${size}`]: size,
+      'is-plain': plain,
+      'is-round': round,
+      'is-circle': circle,
+      'is-disabled': disabled,
+      'is-loading': loading,
     }" 
-    :disabled="buttonProps.disabled" 
-    :autofocus="buttonProps.autofocus" 
-    :type="buttonProps.nativeType"
+    :disabled="disabled || loading" 
+    :autofocus="autofocus" 
+    :type="nativeType"
   >
+    <Icon v-if="loading" icon="fa-solid fa-spinner" spin />
+    <Icon v-if="icon" :icon="icon" />
     <slot></slot>
   </button>
 </template>

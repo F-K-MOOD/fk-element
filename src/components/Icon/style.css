@@ -1,0 +1,34 @@
+.fk-icon {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  fill: currentColor;
+  color: inherit;
+  font-size: inherit;
+}
+
+/* primary icon */
+.fk-icon--primary {
+  color: #409eff;
+}
+
+/* info icon */
+.fk-icon--info {
+  color: #909399;
+}
+
+/* success icon */
+.fk-icon--success {
+  color: #67c23a;
+}
+
+/* warning icon */
+.fk-icon--warning {
+  color: #e6a23c;
+}
+
+/* danger icon */
+.fk-icon--danger {
+  color: #f56c6c;
+}

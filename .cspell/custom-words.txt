@@ -8,3 +8,5 @@ Avenir
 grayscale
 rgba
 header-angle
+fontawesome
+fortawesome
