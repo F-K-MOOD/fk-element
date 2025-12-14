@@ -10,3 +10,4 @@ rgba
 header-angle
 fontawesome
 fortawesome
+popperjs
