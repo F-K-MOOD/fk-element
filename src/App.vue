@@ -1,19 +1,44 @@
 <script setup lang="ts">
-import { ref } from 'vue'
+import { h,ref } from 'vue'
 
 import Button from './components/Button/Button.vue'
 import Collapse from './components/Collapse/Collapse.vue';
 import CollapseItem from './components/Collapse/CollapseItem.vue';
 import type { nameType } from './components/Collapse/types'
-import Tooltip from './components/Tooltip/Tooltip.vue';
+import Dropdown from './components/Dropdown/Dropdown.vue';
 const activeNames = ref<nameType[]>(['aaaa'])
 const trigger = ref<'hover' | 'click'>('hover')
 
-setTimeout(() => {
-  activeNames.value = ['bbbb', 'cccc']
-  trigger.value = 'click'
-}, 2000)
-
+// setTimeout(() => {
+//   activeNames.value = ['bbbb', 'cccc']
+//   trigger.value = 'click'
+// }, 2000)
+const vNode = [
+  {
+    label: h('button', {}, '按钮1'),
+    key: 'aaaa',
+    disabled: false,
+    divided: false,
+  },
+  {
+    label: h('button', {}, '按钮2'),
+    key: 'bbbb',
+    disabled: false,
+    divided: false,
+  },
+  {
+    label: h('button', {}, '按钮3'),
+    key: 'cccc',
+    disabled: false,
+    divided: false,
+  },
+  {
+    label: h('button', {}, '按钮4'),
+    key: 'dddd',
+    disabled: false,
+    divided: false,
+  },
+]
 </script>
 
 <template>
@@ -43,9 +68,9 @@ setTimeout(() => {
     </Collapse>
   </div>
   {{ activeNames }}
-  <Tooltip content="这是一个提示框" :trigger="trigger" :openDelay="1000" :closeDelay="1000">
-    鼠标悬停我
-  </Tooltip>
+  <Dropdown content="这是一个提示框" :trigger="trigger" :openDelay="1000" :closeDelay="1000" :menuOptions="vNode">
+    <h1>鼠标悬停我</h1>
+  </Dropdown>
 </template>
 
 <style scoped>

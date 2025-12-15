@@ -118,10 +118,11 @@ watch(() => props.manual, (newVal, oldVal) => {
   }
 })
 watch(() => props.trigger, (newVal, oldVal) => {
-  if (newVal !== oldVal) {
+  if (newVal !== oldVal && !props.manual) {
     // 清除旧事件
     events.mouseenter = () => { }
     events.click = () => { }
+    outerEvents.mouseleave = () => { }
     attachEvents()
   }
 })
@@ -140,7 +141,6 @@ onUnmounted(() => {
   // 销毁 Popper 实例
   popperInstance.value?.destroy()
 })
-
 defineExpose({
   show: openPopperDebouncedFinal,
   hide: closePopperDebouncedFinal,
