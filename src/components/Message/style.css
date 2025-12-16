@@ -1,0 +1,93 @@
+.fk-message {
+  --fk-message-bg-color: var(--fk-color-info-light-9);
+  --fk-message-border-color: var(--fk-color-info-light-8);
+  --fk-message-padding: 15px 19px;
+  --fk-message-close-size: 16px;
+  --fk-message-close-icon-color: var(--fk-text-color-placeholder);
+  --fk-message-close-hover-color: var(--fk-text-color-secondary);
+}
+
+.fk-message { 
+  width: fit-content;
+  max-width: calc(100% - 32px);
+  box-sizing: border-box;
+  border-radius: var(--fk-border-radius-base);
+  border-width: var(--fk-border-width);
+  border-style: var(--fk-border-style);
+  border-color: var(--fk-message-border-color);
+  position: fixed;
+  left: 50%;
+  top: 20px;
+  transform: translateX(-50%);
+  background-color: var(--fk-message-bg-color);
+  padding: var(--fk-message-padding);
+  display: flex;
+  align-items: center;
+  transition: top var(--fk-transition-duration), opacity var(--fk-transition-duration), transform var(--fk-transition-duration);
+}
+
+.fk-message .fk-message__content {
+  color: var(--fk-message-text-color);
+  overflow-wrap: anywhere;
+}
+
+.fk-message.is-close .fk-message__content {
+  padding-right: 30px;
+}
+
+.fk-message .fk-message__close {
+  display: flex;
+  align-items: center;
+}
+
+.fk-message .fk-message__close svg {
+  cursor: pointer;
+}
+
+/* 转换 @each 循环为独立的 CSS 规则 */
+.fk-message--info {
+  --fk-message-bg-color: var(--fk-color-info-light-9);
+  --fk-message-border-color: var(--fk-color-info-light-8);
+  --fk-message-text-color: var(--fk-color-info);
+}
+
+.fk-message--info .fk-message__close {
+  --fk-icon-color: var(--fk-color-info);
+}
+
+.fk-message--success {
+  --fk-message-bg-color: var(--fk-color-success-light-9);
+  --fk-message-border-color: var(--fk-color-success-light-8);
+  --fk-message-text-color: var(--fk-color-success);
+}
+
+.fk-message--success .fk-message__close {   
+  --fk-icon-color: var(--fk-color-success);
+}
+
+.fk-message--warning {
+  --fk-message-bg-color: var(--fk-color-warning-light-9);
+  --fk-message-border-color: var(--fk-color-warning-light-8);
+  --fk-message-text-color: var(--fk-color-warning);
+}
+
+.fk-message--warning .fk-message__close {
+  --fk-icon-color: var(--fk-color-warning);
+}
+
+.fk-message--danger { 
+  --fk-message-bg-color: var(--fk-color-danger-light-9);
+  --fk-message-border-color: var(--fk-color-danger-light-8);
+  --fk-message-text-color: var(--fk-color-danger);
+}
+
+.fk-message--danger .fk-message__close {
+  --fk-icon-color: var(--fk-color-danger);
+}
+
+/* 动画类 */
+.fk-message.fade-up-enter-from,
+.fk-message.fade-up-leave-to {
+  opacity: 0;
+  transform: translate(-50%, -100%);
+}
