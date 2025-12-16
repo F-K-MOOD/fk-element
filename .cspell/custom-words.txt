@@ -12,3 +12,5 @@ fontawesome
 fortawesome
 popperjs
 RenderVnode
+vnode
+xmark

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { h,ref } from 'vue'
+import { h, onMounted, ref } from 'vue'
 
 import Button from './components/Button/Button.vue'
 import Collapse from './components/Collapse/Collapse.vue';
@@ -9,10 +9,8 @@ import Dropdown from './components/Dropdown/Dropdown.vue';
 const activeNames = ref<nameType[]>(['aaaa'])
 const trigger = ref<'hover' | 'click'>('hover')
 
-// setTimeout(() => {
-//   activeNames.value = ['bbbb', 'cccc']
-//   trigger.value = 'click'
-// }, 2000)
+import { createMessage } from './components/Message/method'
+
 const vNode = [
   {
     label: h('button', {}, '按钮1'),
@@ -39,6 +37,24 @@ const vNode = [
     divided: false,
   },
 ]
+
+onMounted(() => {
+  createMessage({
+    message: '0: 这是一条消息',
+    type: 'info',
+    duration: 0,
+    showClose: true,
+    offset: 30,
+  })
+  createMessage({
+    message: '1:这是一条消息',
+    type: 'info',
+    duration: 0,
+    showClose: true,
+    offset: 20,
+  })
+})
+
 </script>
 
 <template>
@@ -68,7 +84,7 @@ const vNode = [
     </Collapse>
   </div>
   {{ activeNames }}
-  <Dropdown content="这是一个提示框" :trigger="trigger" :openDelay="1000" :closeDelay="1000" :menuOptions="vNode">
+  <Dropdown content="这是一个提示框" :trigger="trigger" :open-delay="1000" :close-delay="1000" :menu-options="vNode">
     <h1>鼠标悬停我</h1>
   </Dropdown>
 </template>

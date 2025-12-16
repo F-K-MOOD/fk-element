@@ -12,6 +12,10 @@ import App from './App.vue'
 
 const app = createApp(App)
 
+app.config.globalProperties.$sayHello = () => {
+  console.log('hello')
+}
+
 app.mount('#app')
 
 
