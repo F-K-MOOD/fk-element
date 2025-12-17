@@ -6,10 +6,13 @@ import Collapse from './components/Collapse/Collapse.vue';
 import CollapseItem from './components/Collapse/CollapseItem.vue';
 import type { nameType } from './components/Collapse/types'
 import Dropdown from './components/Dropdown/Dropdown.vue';
+import Input from './components/Input/Input.vue';
 const activeNames = ref<nameType[]>(['aaaa'])
 const trigger = ref<'hover' | 'click'>('hover')
 
 import { createMessage } from './components/Message/method'
+
+const modelValue = ref('')
 
 const vNode = [
   {
@@ -87,6 +90,7 @@ onMounted(() => {
   <Dropdown content="这是一个提示框" :trigger="trigger" :open-delay="1000" :close-delay="1000" :menu-options="vNode">
     <h1>鼠标悬停我</h1>
   </Dropdown>
+  <Input placeholder="请输入" v-model="modelValue"  clearable size="large" />
 </template>
 
 <style scoped>
