@@ -7,8 +7,9 @@ export interface InputProps {
   disabled?: boolean
   placeholder?: string
   readonly?: boolean
-  autoComplete?: string
+  autocomplete?: string
   form?: string
+  autofocus?: boolean
 }
 
 export interface InputEmits {

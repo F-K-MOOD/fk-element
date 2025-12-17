@@ -1,8 +1,9 @@
 <script setup lang="ts">
 defineOptions({
   name: 'FKInput',
+  inheritAttrs: false,
 })
-import { computed,ref,watch } from 'vue'
+import { computed,ref,useAttrs,watch } from 'vue'
 
 import Icon from '../Icon/Icon.vue';
 import type { InputEmits,InputProps } from './types'
@@ -21,9 +22,10 @@ const props = withDefaults(defineProps<InputProps>(), {
 const emits = defineEmits<InputEmits>()
 
 // 定义响应式数据
-const innerValue = ref(props.modelValue || props.placeholder || '')
+const innerValue = ref(props.modelValue || '')
 const isFocus = ref(false)
 const isPasswordVisible = ref(false)
+const attrs = useAttrs()
 
 // 定义计算属性
 const showClearIcon = computed(() => {
@@ -95,8 +97,14 @@ watch(() => props.modelValue, (newVal) => {
         <input 
           v-model="innerValue"
           class="fk-input__inner"
+          v-bind="attrs"
           :type="enablePasswordToggle ? (isPasswordVisible ? 'text' : 'password') : type"
           :disabled="disabled"
+          :readonly="readonly"
+          :autocomplete="autocomplete"
+          :placeholder="placeholder"
+          :autofocus="autofocus"
+          :form="form"
           @input="handleInput"
           @focus="handleFocus"
           @blur="handleBlur"
@@ -120,7 +128,13 @@ watch(() => props.modelValue, (newVal) => {
       <textarea
         v-model="innerValue" 
         class="fk-text__wrapper" 
+        v-bind="attrs"
         :disabled="disabled"
+        :readonly="readonly"
+        :autocomplete="autocomplete"
+        :placeholder="placeholder"
+        :autofocus="autofocus"
+        :form="form"
         @input="handleInput"
         @focus="handleFocus"
         @blur="handleBlur"
