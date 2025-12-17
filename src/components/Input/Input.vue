@@ -3,7 +3,7 @@ defineOptions({
   name: 'FKInput',
   inheritAttrs: false,
 })
-import { computed,ref,useAttrs,watch } from 'vue'
+import { computed,nextTick,ref,useAttrs,watch } from 'vue'
 
 import Icon from '../Icon/Icon.vue';
 import type { InputEmits,InputProps } from './types'
@@ -26,6 +26,9 @@ const innerValue = ref(props.modelValue || '')
 const isFocus = ref(false)
 const isPasswordVisible = ref(false)
 const attrs = useAttrs()
+
+// 定义DOM引用
+const inputRef = ref<HTMLInputElement>()
 
 // 定义计算属性
 const showClearIcon = computed(() => {
@@ -63,10 +66,18 @@ const togglePasswordVisible = () => {
   // 当前是明文（true）还是密文（false）。
   isPasswordVisible.value = !isPasswordVisible.value
 }
+const keepFocus = async () => {
+  await nextTick()
+  inputRef.value?.focus()
+}
 
 // 监听 modelValue 变化
 watch(() => props.modelValue, (newVal) => {
   innerValue.value = newVal
+})
+
+defineExpose({
+  inputRef,
 })
 </script>
 
@@ -109,9 +120,10 @@ watch(() => props.modelValue, (newVal) => {
           @focus="handleFocus"
           @blur="handleBlur"
           @change="handleChange"
+          ref="inputRef"
         />
         <!-- suffix slot -->
-        <span v-if="$slots.suffix || showClearIcon || canDisplayToggleIcon" class="fk-input__suffix">
+        <span v-if="$slots.suffix || showClearIcon || canDisplayToggleIcon" class="fk-input__suffix" @click="keepFocus">
           <slot name="suffix"></slot>
           <Icon v-if="showClearIcon" icon="circle-xmark" class="fk-input__clear" @click="handleClear" />
           <Icon v-if="canDisplayToggleIcon && isPasswordVisible" icon="eye" class="fk-input__password" @click="togglePasswordVisible" />  
@@ -139,6 +151,7 @@ watch(() => props.modelValue, (newVal) => {
         @focus="handleFocus"
         @blur="handleBlur"
         @change="handleChange"
+        ref="inputRef"
       >
     </textarea>
     </template>

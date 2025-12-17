@@ -90,7 +90,7 @@ onMounted(() => {
   <Dropdown content="这是一个提示框" :trigger="trigger" :open-delay="1000" :close-delay="1000" :menu-options="vNode">
     <h1>鼠标悬停我</h1>
   </Dropdown>
-  <Input placeholder="请输入" v-model="modelValue"  clearable size="large" />
+  <Input placeholder="请输入" v-model="modelValue" :enable-password-toggle="true"  clearable size="large" />
 </template>
 
 <style scoped>
