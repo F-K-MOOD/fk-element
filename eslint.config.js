@@ -34,6 +34,7 @@ export default [
       ],
       "vue/html-self-closing": "off",
       "vue/multi-word-component-names": "off",
+      "@typescript-eslint/no-explicit-any": "warn",
     },
   },
   {
@@ -44,6 +45,7 @@ export default [
     rules: {
       "simple-import-sort/imports": "warn",
       "simple-import-sort/exports": "warn",
+      "@typescript-eslint/no-explicit-any": "warn",
     },
   },
 ];

@@ -3,8 +3,9 @@ defineOptions({
   name: 'FKInput',
   inheritAttrs: false,
 })
-import { computed,nextTick,ref,useAttrs,watch } from 'vue'
+import { computed,inject,nextTick,ref,useAttrs,watch } from 'vue'
 
+import { formItemContextKey } from '../Form/types.ts'
 import Icon from '../Icon/Icon.vue';
 import type { InputEmits,InputProps } from './types'
 
@@ -43,6 +44,7 @@ const canDisplayToggleIcon = computed(() => {
 const handleInput = () => {
   emits('update:modelValue', innerValue.value)
   emits('input', innerValue.value)
+  runValidate('input')
 }
 const handleFocus = (e: FocusEvent) => {
   isFocus.value = true
@@ -50,6 +52,7 @@ const handleFocus = (e: FocusEvent) => {
 }
 const handleBlur = (e: FocusEvent) => {
   isFocus.value = false
+  runValidate('blur')
   emits('blur', e)
 }
 const handleClear = () => {
@@ -61,6 +64,7 @@ const handleClear = () => {
 }
 const handleChange = () => {
   emits('change', innerValue.value)
+  runValidate('change')
 }
 const togglePasswordVisible = () => {
   // 当前是明文（true）还是密文（false）。
@@ -69,6 +73,9 @@ const togglePasswordVisible = () => {
 const keepFocus = async () => {
   await nextTick()
   inputRef.value?.focus()
+}
+const runValidate = (trigger?: string) => {
+  formItemContext?.validate(trigger).catch((e) => {console.log(e.errors)})
 }
 
 // 监听 modelValue 变化
@@ -79,6 +86,8 @@ watch(() => props.modelValue, (newVal) => {
 defineExpose({
   inputRef,
 })
+
+const formItemContext = inject(formItemContextKey)
 </script>
 
 <template>
