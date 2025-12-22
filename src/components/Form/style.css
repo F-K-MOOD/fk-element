@@ -1,0 +1,43 @@
+.vk-form {
+  --vk-form-label-font-size: var(--vk-font-size-base);
+  --vk-form-content-font-size: var(--vk-font-size-base);
+}
+
+/* 表单项容器 */
+.vk-form-item {
+  display: flex;
+  margin-bottom: 18px;
+}
+
+/* 表单项标签 */
+.vk-form-itemlabel {
+  width: 150px;
+  height: 32px;
+  line-height: 32px;
+  padding: 0 12px 0 0;
+  box-sizing: border-box;
+  display: inline-flex;
+  justify-content: flex-end;
+  font-size: var(--vk-form-label-font-size);
+  color: var(--vk-text-color-regular);
+}
+
+.vk-form-item__content {
+  display: flex;
+  flex: 1;
+  align-items: center;
+  line-height: 32px;
+  font-size: var(--vk-form-content-font-size);
+  min-width: 0;
+  position: relative;
+}
+
+.vk-form-item__error-msg {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  padding-top: 2px;
+  color: var(--vk-color-danger);
+  font-size: 12px;
+  line-height: 1px;
+}
