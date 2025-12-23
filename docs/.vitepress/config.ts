@@ -1,8 +1,9 @@
-import { defineConfig } from 'vitepress'
 import { fileURLToPath, URL } from 'node:url'
+
 import vueJsx from '@vitejs/plugin-vue-jsx'
+import { componentPreview,containerPreview } from '@vitepress-demo-preview/plugin'
 import VueMacros from 'unplugin-vue-macros'
-import { containerPreview, componentPreview } from '@vitepress-demo-preview/plugin'
+import { defineConfig } from 'vitepress'
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
   title: "My Awesome Project",
