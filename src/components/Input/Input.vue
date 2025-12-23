@@ -115,6 +115,7 @@ const formItemContext = inject(formItemContextKey)
           <slot name="prefix"></slot>
         </span>
         <input 
+          ref="inputRef"
           v-model="innerValue"
           class="fk-input__inner"
           v-bind="attrs"
@@ -129,7 +130,6 @@ const formItemContext = inject(formItemContextKey)
           @focus="handleFocus"
           @blur="handleBlur"
           @change="handleChange"
-          ref="inputRef"
         />
         <!-- suffix slot -->
         <span v-if="$slots.suffix || showClearIcon || canDisplayToggleIcon" class="fk-input__suffix" @click="keepFocus">
