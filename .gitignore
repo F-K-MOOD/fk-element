@@ -25,3 +25,9 @@ dist-ssr
 
 # Cache files
 .cspellcache
+
+# Build outputs
+packages/components/dist
+packages/playground
+packages/docs/dist
+

@@ -1,7 +1,6 @@
 import { h, reactive, render } from 'vue'
 
-import useZIndex from '@/hooks/useZIndex'
-
+import useZIndex from '../../hooks/useZIndex'
 import Message from './Message.vue'
 import type { createMessageProps, MessageContext, MessageProps } from './types'
 

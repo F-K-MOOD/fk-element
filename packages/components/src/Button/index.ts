@@ -10,5 +10,11 @@ Button.install = (app: App) => {
   app.component('FKButton', Button)
 }
 
+declare module 'vue' {
+  export interface GlobalComponents {
+    FKButton: typeof Button
+  }
+}
+
 export default Button
 export * from './types'

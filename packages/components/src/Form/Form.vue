@@ -2,8 +2,8 @@
 import type  { ValidateFieldsError, } from 'async-validator'
 import { provide } from 'vue'
 
-import type { FormInstance,FormItemContext,FormProps } from './types'
-import { formContextKey } from './types'
+import type { FormInstance,FormItemContext,FormProps } from './types.ts'
+import { formContextKey } from './types.ts'
 import type { FormValidateFailure } from './types.ts'
 
 defineOptions({

@@ -6,16 +6,20 @@ import { fas } from '@fortawesome/free-solid-svg-icons'
 
 library.add(far, fas)
 
-import type {App} from 'vue'
+import type { App } from 'vue'
 
-import Button from './components/Button'
-import Dropdown from './components/Dropdown'
-import Form from './components/Form'
-import FormItem from './components/Form/FormItem.vue'
-import Icon from './components/Icon'
-import Input from './components/Input'
-import Message from './components/Message'
-import Tooltip from './components/Tooltip'
+import Button from './src/Button'
+import Collapse from './src/Collapse'
+import { CollapseItem } from './src/Collapse'
+import Dropdown from './src/Dropdown'
+import Form from './src/Form'
+import FormItem from './src/Form/FormItem.vue'
+import Icon from './src/Icon'
+import Input from './src/Input'
+import Message from './src/Message'
+import Tooltip from './src/Tooltip'
+
+
 
 const components = [
   Message,
@@ -25,7 +29,9 @@ const components = [
   FormItem,
   Input,
   Icon,
-  Button
+  Button,
+  Collapse,
+  CollapseItem
 ]
 
 const install = (app: App) => {
@@ -36,6 +42,8 @@ const install = (app: App) => {
 
 export {
   Button,
+  Collapse,
+  CollapseItem,
   Dropdown,
   Form,
   FormItem,

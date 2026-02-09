@@ -8,6 +8,17 @@ export default [
   ...tseslint.configs.recommended,
   ...eslintPluginVue.configs["flat/recommended"],
   {
+    ignores: [
+      "node_modules/**",
+      "dist/**",
+      "packages/components/dist/**",
+      "packages/playground/**",
+      "packages/docs/dist/**",
+      "*.config.js",
+      "*.config.ts"
+    ],
+  },
+  {
     files: ["*.vue", "**/*.vue"],
     languageOptions: {
       parserOptions: {

@@ -7,7 +7,7 @@ import { computed,inject,nextTick,ref,useAttrs,watch } from 'vue'
 
 import { formItemContextKey } from '../Form/types.ts'
 import Icon from '../Icon/Icon.vue';
-import type { InputEmits,InputProps } from './types'
+import type { InputEmits,InputProps } from './types.ts'
 
 // 定义 props
 const props = withDefaults(defineProps<InputProps>(), {

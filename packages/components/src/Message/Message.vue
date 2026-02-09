@@ -6,8 +6,7 @@ defineOptions({
 // 导入模块, 类型定义, vue 相关函数
 import { computed, nextTick, onMounted, ref, watch } from 'vue';
 
-import { useEventListener } from '@/hooks/useEventListener.ts'
-
+import { useEventListener } from '../../hooks/useEventListener'
 import RenderVnode from '../Common/RenderVnode';
 import Icon from '../Icon/Icon.vue';
 import { getLastBottomOffset } from './method';

@@ -1,0 +1,62 @@
+{
+  "name": "@xuqizhang/fk-element",
+  "version": "1.0.0",
+  "description": "基于 Vue 3 的组件库",
+  "type": "module",
+  "author": "frank Mood",
+  "license": "MIT",
+  "keywords": [
+    "Vue3",
+    "component",
+    "library"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zhangyifan007/v-element.git"
+  },
+  "files": [
+    "dist"
+  ],
+  "sideEffects": [
+    "dist/fk-element.css"
+  ],
+  "main": "dist/fk-element.umd.cjs",
+  "module": "dist/fk-element.js",
+  "types": "dist/types/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/types/index.d.ts",
+      "import": "./dist/fk-element.js",
+      "require": "./dist/fk-element.umd.cjs"
+    },
+    "./dist/": {
+      "import": "./dist/",
+      "require": "./dist/"
+    }
+  },
+  "scripts": {
+    "build": "vite build",
+    "build:es": "vite build --config vite.es.config.ts",
+    "build:umd": "vite build --config vite.umd.config.ts",
+    "build:all": "pnpm run build && pnpm run build:es && pnpm run build:umd",
+    "prepublishOnly": "pnpm run build:all"
+  },
+  "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^7.1.0",
+    "@fortawesome/free-regular-svg-icons": "^7.1.0",
+    "@fortawesome/free-solid-svg-icons": "^7.1.0",
+    "@fortawesome/vue-fontawesome": "^3.1.2",
+    "@popperjs/core": "^2.11.8",
+    "async-validator": "^4.2.5",
+    "lodash-es": "^4.17.21"
+  },
+  "peerDependencies": {
+    "vue": "^3.0.0"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^6.0.1",
+    "vite": "^7.2.4",
+    "vite-plugin-dts": "^4.5.4",
+    "vue": "^3.4.0"
+  }
+}
