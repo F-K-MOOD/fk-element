@@ -12,34 +12,37 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/zhangyifan007/v-element.git"
+    "url": "https://github.com/F-K-MOOD/fk-element"
   },
   "files": [
     "dist"
   ],
   "sideEffects": [
-    "dist/fk-element.css"
+    "dist/index.css"
   ],
-  "main": "dist/fk-element.umd.cjs",
+  "main": "dist/fk-element.umd.js",
   "module": "dist/fk-element.js",
   "types": "dist/types/index.d.ts",
   "exports": {
     ".": {
       "types": "./dist/types/index.d.ts",
       "import": "./dist/fk-element.js",
-      "require": "./dist/fk-element.umd.cjs"
+      "require": "./dist/fk-element.umd.js"
     },
-    "./dist/": {
-      "import": "./dist/",
-      "require": "./dist/"
+    "./style": {
+      "import": "./dist/index.css"
+    },
+    "./dist/*": {
+      "import": "./dist/*",
+      "require": "./dist/*"
+    },
+    "./components/*.css": {
+      "import": "./dist/components/*.css"
     }
   },
   "scripts": {
     "build": "vite build",
-    "build:es": "vite build --config vite.es.config.ts",
-    "build:umd": "vite build --config vite.umd.config.ts",
-    "build:all": "pnpm run build && pnpm run build:es && pnpm run build:umd",
-    "prepublishOnly": "pnpm run build:all"
+    "prepublishOnly": "pnpm run build"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^7.1.0",

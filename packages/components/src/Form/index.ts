@@ -17,6 +17,14 @@ Form.install = (app: App) => {
 FormItem.install = (app: App) => {
   app.component(FormItem.name, FormItem)
 }
+
+declare module 'vue' {
+  export interface GlobalComponents {
+    FKForm: typeof FormComponent
+    FKFormItem: typeof FormItemComponent
+  }
+}
+
 export default Form
 export {
   FormItem,

@@ -1,18 +1,45 @@
 import vue from '@vitejs/plugin-vue'
+import { copyFileSync, existsSync, mkdirSync } from 'fs'
 import { resolve } from 'path'
 import { defineConfig } from 'vite'
 import dts from 'vite-plugin-dts'
+
+function extractComponentCSS() {
+  return {
+    name: 'extract-component-css',
+    writeBundle() {
+      const srcDir = resolve(__dirname, 'src')
+      const distDir = resolve(__dirname, 'dist', 'components')
+
+      if (!existsSync(distDir)) {
+        mkdirSync(distDir, { recursive: true })
+      }
+
+      const components = ['Button', 'Collapse', 'Dropdown', 'Form', 'Icon', 'Input', 'Message', 'Tooltip']
+
+      components.forEach(component => {
+        const srcCssPath = resolve(srcDir, component, 'style.css')
+        const distCssPath = resolve(distDir, `${component.toLowerCase()}.css`)
+
+        if (existsSync(srcCssPath)) {
+          copyFileSync(srcCssPath, distCssPath)
+        }
+      })
+    }
+  }
+}
 
 export default defineConfig({
   plugins: [
     vue(),
     dts({
       outDir: 'dist/types',
-      tsconfigPath: '../../tsconfig.app.json',
+      tsconfigPath: './tsconfig.json',
       include: ['src/**/*.ts', 'src/**/*.vue'],
       insertTypesEntry: true,
       rollupTypes: true
-    })
+    }),
+    extractComponentCSS()
   ],
   resolve: {
     alias: {
@@ -21,36 +48,21 @@ export default defineConfig({
   },
   build: {
     lib: {
-      entry: resolve(__dirname, 'index.ts'),
+      entry: resolve(__dirname, 'src/index.ts'),
       name: 'FKElement',
-      fileName: (format) => {
-        return format === 'es' ? 'fk-element.js' : 'fk-element.umd.js'
-      },
+      fileName: (format) => format === 'es' ? 'fk-element.js' : 'fk-element.umd.js',
       formats: ['es', 'umd']
     },
     rollupOptions: {
-      // 外部化依赖：不打包进产物
-      external: [
-        'vue',
-        '@fortawesome/fontawesome-svg-core',
-        '@fortawesome/free-regular-svg-icons',
-        '@fortawesome/free-solid-svg-icons'
-      ],
+      external: ['vue'],
       output: {
         globals: {
           vue: 'Vue'
         },
-        exports: 'named',
-        // 让每个组件的 CSS 单独输出，如 button.css, input.css
-        assetFileNames: (chunkInfo) => {
-          if (chunkInfo.name?.endsWith('.css')) {
-            return '[name].css'
-          }
-          return '[name].[ext]'
-        }
+        assetFileNames: 'index.css'
       }
     },
-    sourcemap: true,
-    emptyOutDir: true
+    cssCodeSplit: true,
+    sourcemap: true
   }
 })

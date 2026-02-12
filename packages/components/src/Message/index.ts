@@ -30,6 +30,12 @@ Message.error = (options: createMessageProps | string) => {
   return createMessage(typeof options === 'string' ? { message: options, type: 'danger' } : { ...options, type: 'danger' })
 }
 
+declare module 'vue' {
+  export interface GlobalComponents {
+    FKMessage: typeof MessageComponent
+  }
+}
+
 Message.closeAll = () => {
   // 实现关闭所有消息的逻辑
 }
