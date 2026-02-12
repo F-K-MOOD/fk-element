@@ -1,3 +1,5 @@
+import './style.css'
+
 import type {App} from 'vue'
 
 import DropdownComponent from './Dropdown.vue'
