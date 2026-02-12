@@ -1,3 +1,5 @@
+import './style.css'
+
 import type { App } from 'vue'
 
 import MessageComponent from './Message.vue'
