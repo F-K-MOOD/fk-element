@@ -1,0 +1,24 @@
+{
+  "name": "docs",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "description": "FK-Element 组件库文档",
+  "scripts": {
+    "dev": "vitepress dev",
+    "build": "vitepress build",
+    "preview": "vitepress preview"
+  },
+  "dependencies": {
+    "@xuqizhang/fk-element": "workspace:*",
+    "vue": "^3.4.0",
+    "@fortawesome/vue-fontawesome": "^3.1.2",
+    "@fortawesome/fontawesome-svg-core": "^7.1.0",
+    "@fortawesome/free-regular-svg-icons": "^7.1.0",
+    "@fortawesome/free-solid-svg-icons": "^7.1.0"
+  },
+  "devDependencies": {
+    "vite": "^7.2.4",
+    "vitepress": "^1.0.0"
+  }
+}

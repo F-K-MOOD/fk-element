@@ -8,20 +8,20 @@ export default defineConfig({
     vue(),
     dts({
       outDir: 'dist/types',
-      tsconfigPath: './tsconfig.app.json',
-      include: ['packages/components/**/*.ts', 'packages/components/**/*.vue'],
+      tsconfigPath: '../../tsconfig.app.json',
+      include: ['**/*.ts', '**/*.vue'],
       insertTypesEntry: true,
       rollupTypes: true
     })
   ],
   resolve: {
     alias: {
-      '@': '/packages',
+      '@': '../../packages/components',
     },
   },
   build: {
     lib: {
-      entry: 'packages/components/index.ts',
+      entry: 'index.ts',
       name: 'FKElement',
       fileName: 'fk-element',
       formats: ['es', 'umd']
@@ -47,8 +47,3 @@ export default defineConfig({
     },
   },
 })
-
-
-
-
-
