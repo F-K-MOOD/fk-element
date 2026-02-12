@@ -18,6 +18,13 @@ CollapseItem.install = (app: App) => {
   app.component(CollapseItem.name, CollapseItem)
 }
 
+declare module 'vue' {
+  export interface GlobalComponents {
+    FKCollapse: typeof CollapseComponent
+    FKCollapseItem: typeof CollapseItemComponent
+  }
+}
+
 export default Collapse
 export { CollapseItem }
 export * from './types'

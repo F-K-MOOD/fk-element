@@ -10,6 +10,13 @@ Input.name = 'FKInput'
 Input.install = (app: App) => {
   app.component(Input.name, Input)
 }
+
+declare module 'vue' {
+  export interface GlobalComponents {
+    FKInput: typeof InputComponent
+  }
+}
+
 export default Input  
 export {
   InputComponent  

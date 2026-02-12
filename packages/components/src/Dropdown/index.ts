@@ -10,5 +10,12 @@ Dropdown.name = 'FKDropdown'
 Dropdown.install = (app: App) => {
   app.component(Dropdown.name, Dropdown)
 }
+
+declare module 'vue' {
+  export interface GlobalComponents {
+    FKDropdown: typeof DropdownComponent
+  }
+}
+
 export default Dropdown
 export * from './types'

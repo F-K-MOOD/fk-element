@@ -10,5 +10,12 @@ Icon.name = 'FKIcon'
 Icon.install = (app: App) => {
   app.component(Icon.name, Icon)
 }
+
+declare module 'vue' {
+  export interface GlobalComponents {
+    FKIcon: typeof IconComponent
+  }
+}
+
 export default Icon
 export * from './types'

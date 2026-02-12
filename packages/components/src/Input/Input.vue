@@ -26,6 +26,8 @@ const emits = defineEmits<InputEmits>()
 const innerValue = ref(props.modelValue || '')
 const isFocus = ref(false)
 const isPasswordVisible = ref(false)
+// useAttrs() 是一个 Composition API 函数，用于在 <script setup> 中获取当前组件接收到的、
+// 未被 props 声明消费的 attribute 集合
 const attrs = useAttrs()
 
 // 定义DOM引用
@@ -36,7 +38,7 @@ const showClearIcon = computed(() => {
   return props.clearable && !props.disabled && !!innerValue.value
 })
 const canDisplayToggleIcon = computed(() => {
-  // 业务规则闸——总闸打开 且 有内容 且 非禁用才允许画图标
+  // 业务规则闸——总闸打开 且 有内容 且 非禁用才显示密码切换图标
   return props.enablePasswordToggle && !props.disabled && !!innerValue.value
 })
 
@@ -147,9 +149,10 @@ const formItemContext = inject(formItemContextKey)
     <!-- 文本域 -->
     <template v-else>
       <textarea
-        v-model="innerValue" 
-        class="fk-text__wrapper" 
-        v-bind="attrs"
+        v-bind="attrs" 
+        ref="inputRef" 
+        v-model="innerValue"
+        class="fk-text__wrapper"
         :disabled="disabled"
         :readonly="readonly"
         :autocomplete="autocomplete"
@@ -160,7 +163,6 @@ const formItemContext = inject(formItemContextKey)
         @focus="handleFocus"
         @blur="handleBlur"
         @change="handleChange"
-        ref="inputRef"
       >
     </textarea>
     </template>
