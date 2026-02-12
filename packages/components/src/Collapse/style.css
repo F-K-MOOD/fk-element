@@ -30,6 +30,10 @@
     color: var(--fk-collapse-disabled-text-color);
     cursor: not-allowed;
     background-image: none;
+    .header-angle {
+      color: var(--fk-collapse-disabled-text-color);
+      cursor: not-allowed;
+    }
   }
   &.is-active {
     border-bottom-color: transparent;

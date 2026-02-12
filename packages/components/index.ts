@@ -16,10 +16,8 @@ import Form from './src/Form'
 import FormItem from './src/Form/FormItem.vue'
 import Icon from './src/Icon'
 import Input from './src/Input'
-import Message from './src/Message'
+import Message, { createMessage } from './src/Message'
 import Tooltip from './src/Tooltip'
-
-
 
 const components = [
   Message,
@@ -44,6 +42,7 @@ export {
   Button,
   Collapse,
   CollapseItem,
+  createMessage,
   Dropdown,
   Form,
   FormItem,

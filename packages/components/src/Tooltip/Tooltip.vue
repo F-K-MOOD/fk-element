@@ -41,9 +41,9 @@ const outerEvents: Record<string, () => void> = reactive({
 });
 
 // 4. 定义 DOM 引用
+const tooltipRef = ref<HTMLElement>();
 const triggerNode = ref<HTMLElement>();
 const popperNode = ref<HTMLElement>();
-const tooltipRef = ref<HTMLElement>();
 
 // 5. 定义交互方法
 const openPopper = () => {
@@ -86,7 +86,7 @@ const attachEvents = () => {
 };
 useClickOutside(tooltipRef, () => {
   if (props.trigger === "click" && isOpen.value && !props.manual) {
-    closePopperDebounced();
+    closePopperDebouncedFinal();
   }
 });
 

@@ -13,7 +13,6 @@ export interface ButtonProps {
   disabled?: boolean
   icon?: string
   loading?: boolean
-  
 }
 
 

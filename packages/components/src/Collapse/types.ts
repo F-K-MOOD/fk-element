@@ -1,10 +1,9 @@
-import type {InjectionKey,Ref} from 'vue'
+import type { InjectionKey, Ref } from 'vue'
 
 export type nameType = string | number
 
-
 export interface CollapseProps {
-  modelValue?: nameType[]
+  modelValue?: nameType[] | nameType
   accordion?: boolean
 }
 
@@ -14,8 +13,8 @@ export interface CollapseContext {
 }
 
 export interface CollapseEmits {
-  (e: 'update:modelValue', value: nameType[]): void
-  (e: 'change', value: nameType[]): void
+  (e: 'update:modelValue', value: nameType[] | nameType | ''): void
+  (e: 'change', value: nameType[] | nameType | ''): void
 }
 
 export const collapseContextKey: InjectionKey<CollapseContext> = Symbol('collapseContextKey')

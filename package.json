@@ -16,7 +16,7 @@
     "packages/*"
   ],
   "scripts": {
-    "prepare": "husky init",
+    "prepare": "husky",
     "build:components": "pnpm --filter @xuqizhang/fk-element build",
     "dev:playground": "pnpm --filter playground dev",
     "publish:components": "pnpm --filter @xuqizhang/fk-element publish",

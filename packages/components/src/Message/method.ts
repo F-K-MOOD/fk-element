@@ -18,6 +18,7 @@ export const createMessage = (props: createMessageProps) => {
     if (index !== -1) {
       instances.splice(index, 1)
     }
+    render(null, container)
   }
   const manualDestroy = () => {
     const instance = instances.find((item) => item.id === id)
@@ -29,9 +30,8 @@ export const createMessage = (props: createMessageProps) => {
   const newProps: MessageProps = {
     ...props,
     id,
-    onDestroy: destroy,
-    zIndex:  nextZIndex(),
-
+    onDestroy: props.manual ? manualDestroy : destroy,
+    zIndex: nextZIndex(),
   }
   const vnode = h(Message, newProps)
 
@@ -46,7 +46,6 @@ export const createMessage = (props: createMessageProps) => {
     props: newProps,
     vnode,
     vm,
-    destroy: manualDestroy
   }
   instances.push(instance)
   return instance

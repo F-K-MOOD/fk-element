@@ -3,6 +3,7 @@ import type { ComponentInternalInstance, VNode } from 'vue'
 export interface MessageProps {
   message?: string | VNode;
   duration?: number;
+  manual?: boolean;
   showClose?: boolean;
   type?: 'success' | 'info' | 'warning' | 'danger';
   onDestroy: () => void;
@@ -18,5 +19,4 @@ export interface MessageContext {
   props: MessageProps
   vnode: VNode
   vm: ComponentInternalInstance,
-  destroy: () => void,
 }
