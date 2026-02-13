@@ -18,6 +18,7 @@ import './Message/style.css'
 import './Tooltip/style.css'
 import './Dropdown/style.css'
 import './Collapse/style.css'
+import './Switch/style.css'
 
 import type { App } from 'vue'
 
@@ -28,6 +29,7 @@ import Form, { FormItem } from './Form'
 import Icon from './Icon'
 import Input from './Input'
 import Message from './Message'
+import Switch from './Switch'
 import Tooltip from './Tooltip'
 
 const components = [
@@ -40,7 +42,8 @@ const components = [
   Tooltip,
   Dropdown,
   Collapse,
-  CollapseItem
+  CollapseItem,
+  Switch
 ]
 
 const install = (app: App) => {
@@ -75,6 +78,7 @@ export {
   Icon,
   Input,
   Message,
+  Switch,
   Tooltip
 }
 
