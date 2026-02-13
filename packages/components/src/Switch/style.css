@@ -1,0 +1,143 @@
+/* FKSwitch 组件 - 原生 CSS（Vite 友好） */
+.fk-switch {
+  --fk-switch-on-color: var(--fk-color-primary);
+  --fk-switch-off-color: var(--fk-border-color);
+  --fk-switch-on-border-color: var(--fk-color-primary);
+  --fk-switch-off-border-color: var(--fk-border-color);
+}
+
+.fk-switch {
+  display: inline-flex;
+  align-items: center;
+  font-size: 14px;
+  line-height: 20px;
+  height: 32px;
+}
+
+.fk-switch .fk-switch__input {
+  position: absolute;
+  width: 0;
+  height: 0;
+  opacity: 0;
+  margin: 0;
+}
+
+.fk-switch .fk-switch__input:focus-visible ~ .fk-switch__core {
+  outline: 2px solid var(--fk-switch-on-color);
+  outline-offset: 1px;
+}
+
+.fk-switch.is-disabled {
+  opacity: 0.6;
+}
+
+.fk-switch.is-disabled .fk-switch__core {
+  cursor: not-allowed;
+}
+
+.fk-switch.is-checked .fk-switch__core {
+  border-color: var(--fk-switch-on-border-color);
+  background-color: var(--fk-switch-on-color);
+}
+
+.fk-switch.is-checked .fk-switch__core .fk-switch__core-action {
+  left: calc(100% - 17px);
+}
+
+.fk-switch.is-checked .fk-switch__core .fk-switch__core-inner {
+  padding: 0 18px 0 4px;
+}
+
+/* Large Size */
+.fk-switch--large {
+  font-size: 14px;
+  line-height: 24px;
+  height: 40px;
+}
+
+.fk-switch--large .fk-switch__core {
+  min-width: 50px;
+  height: 24px;
+  border-radius: 12px;
+}
+
+.fk-switch--large .fk-switch__core .fk-switch__core-action {
+  width: 20px;
+  height: 20px;
+}
+
+.fk-switch--large.is-checked .fk-switch__core .fk-switch__core-action {
+  left: calc(100% - 21px);
+  color: var(--fk-switch-on-color);
+}
+
+/* Small Size */
+.fk-switch--small {
+  font-size: 12px;
+  line-height: 16px;
+  height: 24px;
+}
+
+.fk-switch--small .fk-switch__core {
+  min-width: 30px;
+  height: 16px;
+  border-radius: 8px;
+}
+
+.fk-switch--small .fk-switch__core .fk-switch__core-action {
+  width: 12px;
+  height: 12px;
+}
+
+.fk-switch--small.is-checked .fk-switch__core .fk-switch__core-action {
+  left: calc(100% - 13px);
+  color: var(--fk-switch-on-color);
+}
+
+/* Core */
+.fk-switch__core {
+  display: inline-flex;
+  align-items: center;
+  position: relative;
+  height: 20px;
+  min-width: 40px;
+  border: 1px solid var(--fk-switch-off-border-color);
+  outline: none;
+  border-radius: 10px;
+  box-sizing: border-box;
+  background: var(--fk-switch-off-color);
+  cursor: pointer;
+  transition: 
+    border-color var(--fk-transition-duration),
+    background-color var(--fk-transition-duration);
+}
+
+.fk-switch__core .fk-switch__core-action {
+  position: absolute;
+  left: 1px;
+  border-radius: var(--fk-border-radius-circle);
+  width: 16px;
+  height: 16px;
+  background-color: var(--fk-color-white);
+  transition: all var(--fk-transition-duration);
+}
+
+.fk-switch__core .fk-switch__core-inner {
+  width: 100%;
+  transition: all var(--fk-transition-duration);
+  height: 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  padding: 0 4px 0 18px;
+}
+
+.fk-switch__core .fk-switch__core-inner .fk-switch__core-inner-text {
+  font-size: 12px;
+  color: var(--fk-color-white);
+  user-select: none;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
