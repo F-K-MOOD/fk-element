@@ -21,6 +21,7 @@ export interface InputEmits {
   (e: 'focus',value:FocusEvent): void
   (e: 'blur',value:FocusEvent): void
   (e: 'update:modelValue', value: string): void
+  (e: 'keydown', value: KeyboardEvent): void
 }
 
 export interface InputInstance {

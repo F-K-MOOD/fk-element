@@ -88,6 +88,9 @@ useClickOutside(tooltipRef, () => {
   if (props.trigger === "click" && isOpen.value && !props.manual) {
     closePopperDebouncedFinal();
   }
+  if(isOpen.value){
+    emits("clickOutside", true);
+  }
 });
 
 // 6. 监听状态变化，管理 Popper 实例
